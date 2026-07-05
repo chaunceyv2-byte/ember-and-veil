@@ -1,0 +1,84 @@
+/* homepage.css - Ember & Veil homepage refinement */
+
+.refined-nav{background:linear-gradient(to bottom,rgba(14,11,15,.82),rgba(14,11,15,.42))}
+.refined-nav.scrolled{background:rgba(14,11,15,.94);box-shadow:0 12px 40px rgba(0,0,0,.35)}
+
+.brand-mark{display:flex;align-items:center;gap:.85rem;font-family:"Cormorant Garamond",serif;letter-spacing:.12em;font-size:1.25rem}
+.brand-mark img{width:48px;height:48px;object-fit:contain}
+.brand-mark em{color:var(--brass);font-style:normal}
+
+.menu-toggle{display:none;background:transparent;border:0;width:42px;height:36px;flex-direction:column;gap:6px;justify-content:center}
+.menu-toggle span{display:block;height:1px;width:100%;background:var(--brass)}
+
+.hero-refined{
+  min-height:100vh;
+  background:
+    linear-gradient(90deg,rgba(8,5,10,.9) 0%,rgba(8,5,10,.72) 38%,rgba(8,5,10,.18) 68%),
+    linear-gradient(180deg,rgba(8,5,10,.18),rgba(8,5,10,.88)),
+    url("../images/hero/hero-home.webp");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  padding:9rem 6% 5rem;
+}
+
+.hero-smoke,.hero-gold-dust{position:absolute;inset:0;pointer-events:none;background-size:cover;background-position:center}
+.hero-smoke{background-image:url("../images/overlays/smoke-soft.png");opacity:.35;mix-blend-mode:screen;animation:drift 18s ease-in-out infinite alternate}
+.hero-gold-dust{background-image:url("../images/overlays/gold-dust.png");opacity:.22;mix-blend-mode:screen}
+
+.hero-panel{width:min(650px,100%);position:relative;z-index:3;text-align:left}
+.hero-panel h1{font-size:clamp(4rem,8vw,7.5rem);line-height:.9;letter-spacing:.08em;margin:.4rem 0 1rem}
+.hero-panel .lead{margin:1.5rem 0 2rem;font-size:1.25rem;color:rgba(245,242,234,.88)}
+
+.hero-divider{width:70%;max-width:460px;height:1px;background:linear-gradient(to right,var(--brass),transparent);position:relative}
+.hero-divider::before{content:"✦";color:var(--brass);position:absolute;left:58%;top:50%;transform:translate(-50%,-50%);background:rgba(14,11,15,.7);padding:0 .65rem}
+
+.hero-meta{display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:3rem;color:rgba(245,242,234,.7);font-size:.85rem;letter-spacing:.1em;text-transform:uppercase}
+.scroll-cue{position:absolute;left:50%;bottom:2rem;transform:translateX(-50%);z-index:5;font-size:.75rem;text-transform:uppercase;letter-spacing:.28em;color:rgba(245,242,234,.62)}
+
+.welcome-section{padding-top:8rem}
+.feature-card{text-align:center}
+.feature-icon{width:76px;height:76px;object-fit:contain;margin:0 auto 1rem;display:block;filter:drop-shadow(0 0 14px rgba(176,141,87,.28))}
+
+.showcase-section{max-width:1400px}
+.showcase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.image-card{background:var(--velvet);border:1px solid rgba(176,141,87,.16);border-radius:var(--radius);overflow:hidden;transition:.35s ease}
+.image-card:hover{transform:translateY(-8px);border-color:rgba(176,141,87,.6);box-shadow:0 20px 50px rgba(0,0,0,.42)}
+.image-card img{width:100%;height:310px;object-fit:cover;display:block}
+.image-card div{padding:1.5rem}
+.image-card h3{font-size:2rem}
+.centered-action{text-align:center;margin-top:2.5rem}
+
+.tarot-home-section{
+  background:
+    linear-gradient(rgba(14,11,15,.86),rgba(14,11,15,.92)),
+    url("../images/backgrounds/private-tea-room.webp");
+  background-size:cover;
+  background-position:center;
+  max-width:none;
+}
+.service-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1200px;margin:0 auto}
+.featured-service{border-color:rgba(176,141,87,.65);background:linear-gradient(180deg,rgba(63,35,71,.35),rgba(23,19,24,.96))}
+
+.testimonial-section{max-width:none;background:linear-gradient(rgba(14,11,15,.86),rgba(14,11,15,.86)),url("../images/textures/dark-velvet.png");background-size:cover}
+.testimonial-section blockquote{border:0;padding:0;font-family:"Cormorant Garamond",serif;font-size:clamp(1.8rem,4vw,3rem);line-height:1.25}
+
+.footer-logo{width:90px;height:90px;object-fit:contain;margin-bottom:1rem}
+.footer-links{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin:1.5rem 0}
+.footer-links a:hover{color:var(--brass)}
+
+@media(max-width:900px){
+  .menu-toggle{display:flex}
+  .nav-links{position:absolute;top:100%;right:1rem;left:1rem;display:none;flex-direction:column;padding:1.5rem;background:rgba(14,11,15,.96);border:1px solid rgba(176,141,87,.24);border-radius:18px}
+  .nav-links.open{display:flex}
+  .nav-cta{display:none}
+  .hero-refined{background:linear-gradient(rgba(8,5,10,.76),rgba(8,5,10,.9)),url("../images/hero/hero-home.webp");background-size:cover;background-position:center right;text-align:center;justify-content:center}
+  .hero-panel{text-align:center}
+  .hero-divider{margin:auto}
+  .hero-meta{justify-content:center}
+  .showcase-grid,.service-row{grid-template-columns:1fr}
+  .image-card img{height:260px}
+}

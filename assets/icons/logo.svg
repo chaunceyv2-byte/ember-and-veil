@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+<rect width="320" height="320" rx="36" fill="#0E0B0F"/>
+<path d="M205 67C169 77 143 111 143 151C143 191 169 225 205 235C151 242 103 200 103 151C103 102 151 60 205 67Z" fill="#B08D57"/>
+<path d="M204 88C181 98 164 122 164 151C164 180 181 204 204 214C169 210 142 183 142 151C142 119 169 92 204 88Z" fill="#0E0B0F"/>
+<rect x="145" y="118" width="30" height="101" fill="#F5F2EA"/>
+<path d="M160 105C171 118 171 131 160 139C149 131 149 118 160 105Z" fill="#B08D57"/>
+<text x="160" y="292" text-anchor="middle" fill="#F5F2EA"
+font-family="Georgia, serif" font-size="28" letter-spacing="5">EMBER &amp; VEIL</text>
+</svg>

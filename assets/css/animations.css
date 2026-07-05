@@ -1,0 +1,79 @@
+/* animations.css */
+
+@keyframes floatUp{
+  from{transform:translateY(0);opacity:0}
+  10%{opacity:1}
+  to{transform:translateY(-110vh);opacity:0}
+}
+
+@keyframes drift{
+  from{transform:translateX(-8%)}
+  to{transform:translateX(8%)}
+}
+
+@keyframes flicker{
+  0%,100%{filter:drop-shadow(0 0 8px rgba(176,141,87,.4))}
+  50%{filter:drop-shadow(0 0 18px rgba(176,141,87,.8))}
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(35px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes shimmer{
+  0%{background-position:-200% 0}
+  100%{background-position:200% 0}
+}
+
+.hero h1,.hero .lead,.hero .actions{
+  animation:fadeUp .9s ease both;
+}
+.hero .lead{animation-delay:.2s}
+.hero .actions{animation-delay:.4s}
+
+.reveal{
+  opacity:0;
+  transform:translateY(30px);
+  transition:all .8s ease;
+}
+.reveal.active{
+  opacity:1;
+  transform:none;
+}
+
+.ember{
+  position:absolute;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:var(--brass);
+  box-shadow:0 0 10px var(--brass);
+  animation:floatUp linear forwards;
+}
+
+.mist{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.03),transparent);
+  animation:drift 16s ease-in-out infinite alternate;
+  pointer-events:none;
+}
+
+.btn{
+  position:relative;
+  overflow:hidden;
+}
+.btn::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.22),transparent);
+  background-size:200% 100%;
+  opacity:0;
+}
+.btn:hover::after{
+  opacity:1;
+  animation:shimmer 1.2s linear;
+}
+.logo{animation:flicker 3s infinite;}

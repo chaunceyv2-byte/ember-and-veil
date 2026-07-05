@@ -1,0 +1,103 @@
+/* responsive.css */
+
+@media (max-width:1100px){
+  .navbar{padding:1rem 3%}
+  section{padding:5rem 4%}
+}
+
+@media (max-width:900px){
+  .nav-links{
+    display:none;
+  }
+
+  .hero{
+    padding-top:7rem;
+  }
+
+  h1{
+    font-size:3.5rem;
+  }
+
+  h2{
+    font-size:2rem;
+  }
+
+  .cards,
+  .grid-3,
+  footer .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .actions{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .btn{
+    width:100%;
+    max-width:320px;
+    text-align:center;
+  }
+
+  form{
+    flex-direction:column;
+  }
+
+  input{
+    width:100%;
+  }
+}
+
+@media (max-width:600px){
+  body{
+    font-size:15px;
+  }
+
+  .navbar{
+    flex-wrap:wrap;
+    gap:1rem;
+  }
+
+  .logo{
+    font-size:1.6rem;
+  }
+
+  h1{
+    font-size:2.8rem;
+    line-height:1.1;
+  }
+
+  .lead{
+    font-size:1rem;
+  }
+
+  section{
+    padding:4rem 1.5rem;
+  }
+
+  .card{
+    padding:1.5rem;
+  }
+
+  blockquote{
+    font-size:1.1rem;
+  }
+
+  footer{
+    padding:2rem 1.5rem;
+  }
+}
+
+@media (min-width:1400px){
+  :root{
+    --max:1320px;
+  }
+
+  h1{
+    font-size:6.5rem;
+  }
+
+  .lead{
+    font-size:1.35rem;
+  }
+}
