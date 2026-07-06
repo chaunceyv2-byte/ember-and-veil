@@ -1,0 +1,23 @@
+/* contact-form.css */
+
+.hidden-field {
+  display: none !important;
+}
+
+.form-status {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.form-status.success {
+  color: #c9a66b;
+}
+
+.form-status.error {
+  color: #ffb3a7;
+}
+
+#contact-form button[disabled] {
+  opacity: 0.65;
+  cursor: not-allowed;
+}

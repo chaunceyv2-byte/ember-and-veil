@@ -6,7 +6,7 @@
 <title>Contact | Ember & Veil</title>
 <meta name="description" content="Get in touch with Ember & Veil to book a tarot reading, ask about tea, or inquire about private events.">
 
-<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<link rel="icon" type="image/png" href="assets/icons/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@
 <li><a class="active" href="contact.html">Contact</a></li>
 </ul>
 
-<a class="btn" href="#contact-form">Book a Reading</a>
+<a class="btn" href="#contact-section">Book a Reading</a>
 </nav>
 
 <header class="hero">
@@ -49,7 +49,7 @@ Send us a message and we'll be in touch.
 
 <main>
 
-<section id="contact-form">
+<section id="contact-section">
 <div class="section-title">
 <h2>Send a Message</h2>
 <div class="divider"></div>
@@ -57,22 +57,26 @@ Send us a message and we'll be in touch.
 </div>
 
 <div class="card" style="max-width:760px;margin:auto;">
-<form>
-<input type="text" placeholder="Your Name" required>
-<input type="email" placeholder="Email Address" required>
+<form id="contact-form">
+<input name="name" type="text" placeholder="Your Name" required>
+<input name="email" type="email" placeholder="Email Address" required>
 
-<select style="width:100%;padding:1rem;margin-bottom:1rem;background:#111;color:#F5F2EA;border:1px solid #555;border-radius:12px;">
+<select name="service" style="width:100%;padding:1rem;margin-bottom:1rem;background:#111;color:#F5F2EA;border:1px solid #555;border-radius:12px;">
 <option>General Question</option>
 <option>Book a Tarot Reading</option>
 <option>Tea Inquiry</option>
 <option>Private Event</option>
 </select>
 
-<textarea rows="7" placeholder="How can we help?" style="width:100%;padding:1rem;background:#111;color:#F5F2EA;border:1px solid #555;border-radius:12px;"></textarea>
+<input name="website" type="text" style="display:none;" tabindex="-1" autocomplete="off">
+
+<textarea name="message" rows="7" placeholder="How can we help?" required style="width:100%;padding:1rem;background:#111;color:#F5F2EA;border:1px solid #555;border-radius:12px;"></textarea>
 
 <div style="margin-top:1.5rem;">
 <button class="btn" type="submit">Send Message</button>
 </div>
+
+<p id="contact-status" class="form-status" aria-live="polite"></p>
 </form>
 </div>
 </section>
@@ -100,7 +104,7 @@ Send us a message and we'll be in touch.
 <div class="newsletter-box">
 <h2>Book a Quiet Moment</h2>
 <p>Reserve a tea ritual, tarot reading, or private gathering.</p>
-<a class="btn" href="#contact-form">Request a Booking</a>
+<a class="btn" href="#contact-section">Request a Booking</a>
 </div>
 </section>
 
