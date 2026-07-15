@@ -1,61 +1,42 @@
-// contact.js
-// Ember & Veil contact form handler
-
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector("#contact-form");
-  const status = document.querySelector("#contact-status");
+  const form = document.getElementById("contact-form");
+  const statusEl = document.getElementById("contact-status");
+  if (!form || !statusEl) return;
 
-  if (!form || !status) return;
+  const endpoint = "https://contact-form.mizesinky.workers.dev";
 
-  form.addEventListener("submit", async event => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
+    if (!form.reportValidity()) return;
 
-    const button = form.querySelector("button[type='submit']");
-    const originalText = button ? button.textContent : "Send Message";
+    const button = form.querySelector('button[type="submit"]');
+    const originalText = button.textContent;
+    button.disabled = true;
+    button.textContent = "Sending...";
+    statusEl.textContent = "";
+    statusEl.className = "form-status";
 
-    if (button) {
-      button.disabled = true;
-      button.textContent = "Sending...";
-    }
-
-    status.textContent = "";
-    status.className = "form-status";
-
-    const payload = {
-      name: form.elements.name.value,
-      email: form.elements.email.value,
-      service: form.elements.service.value,
-      message: form.elements.message.value,
-      website: form.elements.website.value
-    };
+    const data = new FormData(form);
+    const payload = Object.fromEntries(data.entries());
 
     try {
-      const response = await fetch("https://contact-form.mizesinky.workers.dev", {
+      const response = await fetch(endpoint, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: {"Content-Type": "application/json"},
         body: JSON.stringify(payload)
       });
-
       const result = await response.json();
-
-      if (!response.ok || !result.ok) {
-        throw new Error(result.error || "Message failed.");
-      }
-
-      status.textContent = "Your message has been sent. We will reply soon.";
-      status.classList.add("success");
+      if (!response.ok || !result.ok) throw new Error(result.error || "Request failed.");
+      statusEl.textContent = "Your message has been sent. We will reply soon.";
+      statusEl.classList.add("success");
       form.reset();
     } catch (error) {
-      status.textContent = "Your message could not be sent. Please try again.";
-      status.classList.add("error");
-      console.error("Contact form error:", error);
+      console.error(error);
+      statusEl.textContent = "Your message could not be sent. Please try again.";
+      statusEl.classList.add("error");
     } finally {
-      if (button) {
-        button.disabled = false;
-        button.textContent = originalText;
-      }
+      button.disabled = false;
+      button.textContent = originalText;
     }
   });
 });
